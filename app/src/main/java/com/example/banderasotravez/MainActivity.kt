@@ -1,4 +1,9 @@
 package com.example.banderasotravez
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -9,15 +14,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.banderasotravez.ui.theme.BanderasotravezTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            BanderasotravezTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    BanderaItalia(modifier = Modifier.fillMaxSize())
+                }
+            }
+        }
+    }
+}
 
 @Composable
-fun BanderaFrancia(modifier: Modifier = Modifier) {
+fun BanderaItalia(modifier: Modifier = Modifier) {
     Row(modifier = modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(Color(0xFF0055A4)) // azul
+                .background(Color(0xFF009246)) // verde
         )
         Box(
             modifier = Modifier
@@ -29,14 +49,17 @@ fun BanderaFrancia(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(Color(0xFFEF4135)) // rojo
+                .background(Color(0xFFCE2B37)) // rojo
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaFranciaPreview() {
-    Surface {
-        BanderaFrancia(modifier = Modifier.fillMaxSize())
-    }}
+fun BanderaItaliaPreview() {
+    BanderasotravezTheme {
+        Surface {
+            BanderaItalia(modifier = Modifier.fillMaxSize())
+        }
+    }
+}
