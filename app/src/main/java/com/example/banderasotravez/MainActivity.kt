@@ -5,10 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasotravezTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    BanderaEEUU(modifier = Modifier.fillMaxSize())
+                    BanderaChile(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -37,51 +35,32 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BanderaEEUU(modifier: Modifier = Modifier) {
+fun BanderaChile(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
-            repeat(13) { index ->
-                Box(
-                    Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .background(if (index % 2 == 0) Color(0xFFB22234) else Color.White)
-                )
-            }
+            Box(Modifier.weight(1f).fillMaxWidth().background(Color.White))
+            Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFFD52B1E)))
         }
 
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .fillMaxWidth(0.4f)
-                .fillMaxHeight(0.54f)
-                .background(Color(0xFF3C3B6E))
+                .fillMaxWidth(0.33f)
+                .fillMaxHeight(0.5f)
+                .background(Color(0xFF0039A6)),
+            contentAlignment = Alignment.Center
         ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.SpaceEvenly
-            ) {
-                repeat(5) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        repeat(6) {
-                            Text(text = "★", color = Color.White, fontSize = 12.sp)
-                        }
-                    }
-                }
-            }
+            Text(text = "★", color = Color.White, fontSize = 40.sp)
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaEEUUPreview() {
+fun BanderaChilePreview() {
     BanderasotravezTheme {
         Surface {
-            BanderaEEUU(modifier = Modifier.fillMaxSize())
+            BanderaChile(modifier = Modifier.fillMaxSize())
         }
     }
 }
