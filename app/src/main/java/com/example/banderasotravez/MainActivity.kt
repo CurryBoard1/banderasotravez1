@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,50 +26,36 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasotravezTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    BanderaBrasil(modifier = Modifier.fillMaxSize())
+                    BanderaJapon(modifier = Modifier.fillMaxSize())
                 }
             }
         }
     }
 }
 
-val RombosShape = GenericShape { size, _ ->
-    moveTo(size.width / 2f, 0f)
-    lineTo(size.width, size.height / 2f)
-    lineTo(size.width / 2f, size.height)
-    lineTo(0f, size.height / 2f)
-    close()
-}
-
 @Composable
-fun BanderaBrasil(modifier: Modifier = Modifier) {
+fun BanderaJapon(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFF009B3A)),
+            .background(Color.White),
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
-                .fillMaxSize(0.75f)
-                .clip(RombosShape)
-                .background(Color(0xFFFEDF00))
-        )
-        Box(
-            modifier = Modifier
-                .size(90.dp)
+                .size(120.dp)
                 .clip(CircleShape)
-                .background(Color(0xFF002776))
+                .background(Color(0xFFBC002D))
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaBrasilPreview() {
+fun BanderaJaponPreview() {
     BanderasotravezTheme {
         Surface {
-            BanderaBrasil(modifier = Modifier.fillMaxSize())
+            BanderaJapon(modifier = Modifier.fillMaxSize())
         }
     }
 }
