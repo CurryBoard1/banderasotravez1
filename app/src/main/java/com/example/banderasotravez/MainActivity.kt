@@ -6,11 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,37 +27,50 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasotravezTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    BanderaArgentina(modifier = Modifier.fillMaxSize())
+                    BanderaBrasil(modifier = Modifier.fillMaxSize())
                 }
             }
         }
     }
 }
 
+val RombosShape = GenericShape { size, _ ->
+    moveTo(size.width / 2f, 0f)
+    lineTo(size.width, size.height / 2f)
+    lineTo(size.width / 2f, size.height)
+    lineTo(0f, size.height / 2f)
+    close()
+}
+
 @Composable
-fun BanderaArgentina(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize()) {
-        Column(Modifier.fillMaxSize()) {
-            Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFF74ACDF)))
-            Box(Modifier.weight(1f).fillMaxWidth().background(Color.White))
-            Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFF74ACDF)))
-        }
+fun BanderaBrasil(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFF009B3A)),
+        contentAlignment = Alignment.Center
+    ) {
         Box(
             modifier = Modifier
-                .align(Alignment.Center)
-                .size(50.dp)
+                .fillMaxSize(0.75f)
+                .clip(RombosShape)
+                .background(Color(0xFFFEDF00))
+        )
+        Box(
+            modifier = Modifier
+                .size(90.dp)
                 .clip(CircleShape)
-                .background(Color(0xFFF6B40E))
+                .background(Color(0xFF002776))
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaArgentinaPreview() {
+fun BanderaBrasilPreview() {
     BanderasotravezTheme {
         Surface {
-            BanderaArgentina(modifier = Modifier.fillMaxSize())
+            BanderaBrasil(modifier = Modifier.fillMaxSize())
         }
     }
 }
