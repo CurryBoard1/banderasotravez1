@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasotravezTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    BanderaItalia(modifier = Modifier.fillMaxSize())
+                    BanderaAlemania(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -31,35 +31,35 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BanderaItalia(modifier: Modifier = Modifier) {
-    Row(modifier = modifier.fillMaxSize()) {
+fun BanderaAlemania(modifier: Modifier = Modifier) {
+    Column(modifier = modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
-                .background(Color(0xFF009246)) // verde
+                .fillMaxWidth()
+                .background(Color.Black)
         )
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
-                .background(Color.White)
+                .fillMaxWidth()
+                .background(Color(0xFFDD0000)) // rojo
         )
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
-                .background(Color(0xFFCE2B37)) // rojo
+                .fillMaxWidth()
+                .background(Color(0xFFFFCE00)) // amarillo
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaItaliaPreview() {
+fun BanderaAlemaniaPreview() {
     BanderasotravezTheme {
         Surface {
-            BanderaItalia(modifier = Modifier.fillMaxSize())
+            BanderaAlemania(modifier = Modifier.fillMaxSize())
         }
     }
 }
