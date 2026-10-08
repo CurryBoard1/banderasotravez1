@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasotravezTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    BanderaAlemania(modifier = Modifier.fillMaxSize())
+                    BanderaEspana(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -31,35 +31,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BanderaAlemania(modifier: Modifier = Modifier) {
+fun BanderaEspana(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .background(Color.Black)
-        )
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .background(Color(0xFFDD0000)) // rojo
-        )
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .background(Color(0xFFFFCE00)) // amarillo
-        )
+        Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFFAA151B)))
+        Box(Modifier.weight(2f).fillMaxWidth().background(Color(0xFFF1BF00)))
+        Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFFAA151B)))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BanderaAlemaniaPreview() {
+fun BanderaEspanaPreview() {
     BanderasotravezTheme {
         Surface {
-            BanderaAlemania(modifier = Modifier.fillMaxSize())
+            BanderaEspana(modifier = Modifier.fillMaxSize())
         }
     }
 }
